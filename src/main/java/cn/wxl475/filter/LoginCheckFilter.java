@@ -27,7 +27,7 @@ public class LoginCheckFilter implements GlobalFilter, Ordered {
         ServerHttpRequest req=  exchange.getRequest();
         ServerHttpResponse resp = exchange.getResponse();
 
-        //1.yaml.获取url
+        //1.获取url
         String url = req.getURI().getPath();
         log.info("请求的url:{}",url);
 
