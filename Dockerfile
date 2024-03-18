@@ -5,6 +5,6 @@ FROM openjdk:11
 COPY ./target/gateway-1.0-SNAPSHOT.jar /gateway/gateway.jar
 
 # 暴露端口
-EXPOSE 8080
+EXPOSE 10010
 # 入口，java项目的启动命令
 ENTRYPOINT java -jar -Xms128m -Xms128m /gateway/gateway.jar --spring.profiles.active=pro
