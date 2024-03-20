@@ -15,6 +15,8 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
 
+import java.util.Objects;
+
 @Slf4j
 @Component
 public class LoginCheckFilter implements GlobalFilter, Ordered {
@@ -32,8 +34,8 @@ public class LoginCheckFilter implements GlobalFilter, Ordered {
         log.info("请求的url:{}",url);
 
         //2.判断url是否是被放行
-        if(req.getMethod().toString().equals("POST")){
-            if(url.equals("/user/login")){
+        if("POST".equals(Objects.requireNonNull(req.getMethod()).toString())){
+            if("/user/login".equals(url)){
                 log.info("登录操作直接放行");
                 return filterChain.filter(exchange);
             }
