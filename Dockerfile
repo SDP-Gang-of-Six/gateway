@@ -7,4 +7,4 @@ COPY ./target/gateway-1.0-SNAPSHOT.jar /gateway/gateway.jar
 # 暴露端口
 EXPOSE 10010
 # 入口，java项目的启动命令
-ENTRYPOINT java -server -Xms1024m -Xmx1024m -jar /gateway/gateway.jar --spring.profiles.active=pro
+ENTRYPOINT java -server -Xms1024m -Xmx1024m -XX:NewRatio=2 -XX:SurvivorRatio=8 -jar /gateway/gateway.jar --spring.profiles.active=pro
